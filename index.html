@@ -1,5 +1,105 @@
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<h1> Library Management System</h1>
-<h1> Smart Library Management System</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Library Management System</h1>
+        <p>Library Management & Comment Optimization</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#issue">Issue / Return</a>
+        <a href="#comments">Comments</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Our Library</h2>
+
+        <p>
+            Manage books, issue and return books,
+            and optimize library comments easily.
+        </p>
+    </section>
+
+    <section id="books">
+
+        <h2>📖 Book Management</h2>
+
+        <input
+            type="text"
+            id="bookName"
+            placeholder="Enter book name">
+
+        <button onclick="addBook()">Add Book</button>
+
+        <ul id="bookList"></ul>
+
+    </section>
+
+    <section id="issue">
+
+        <h2>📕 Issue / Return Book</h2>
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Student Name">
+
+        <input
+            type="text"
+            id="issueBook"
+            placeholder="Book Name">
+
+        <button onclick="issueBook()">Issue Book</button>
+
+        <p id="issueResult"></p>
+
+    </section>
+
+    <section id="comments">
+
+        <h2>💬 Comment Optimization</h2>
+
+        <textarea
+            id="comment"
+            placeholder="Enter your library comment">
+        </textarea>
+
+        <br>
+
+        <button onclick="optimizeComment()">
+            Optimize Comment
+        </button>
+
+        <h3>Optimized Comment:</h3>
+
+        <p id="optimizedComment"></p>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Library Management System
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
