@@ -1,11 +1,7 @@
 let books = [];
 
-
-// ADD BOOK
 function addBook() {
-
-    let bookName =
-        document.getElementById("bookName").value.trim();
+    let bookName = document.getElementById("bookName").value;
 
     if (bookName === "") {
         alert("Please enter a book name.");
@@ -19,51 +15,42 @@ function addBook() {
     document.getElementById("bookName").value = "";
 }
 
-
-// DISPLAY BOOKS
 function displayBooks() {
-
-    let bookList =
-        document.getElementById("bookList");
+    let bookList = document.getElementById("bookList");
 
     bookList.innerHTML = "";
 
-    books.forEach(function(book, index) {
+    for (let i = 0; i < books.length; i++) {
+        let li = document.createElement("li");
 
-        bookList.innerHTML += `
-            <li>
-                ${book}
-                <button onclick="deleteBook(${index})">
-                    Delete
-                </button>
-            </li>
-        `;
-    });
+        li.innerText = books[i] + " ";
+
+        let deleteButton = document.createElement("button");
+
+        deleteButton.innerText = "Delete";
+
+        deleteButton.onclick = function() {
+            deleteBook(i);
+        };
+
+        li.appendChild(deleteButton);
+
+        bookList.appendChild(li);
+    }
 }
 
-
-// DELETE BOOK
 function deleteBook(index) {
-
     books.splice(index, 1);
 
     displayBooks();
 }
 
-
-// ISSUE BOOK
 function issueBook() {
-
-    let student =
-        document.getElementById("studentName").value.trim();
-
-    let book =
-        document.getElementById("issueBook").value.trim();
+    let student = document.getElementById("studentName").value;
+    let book = document.getElementById("issueBook").value;
 
     if (student === "" || book === "") {
-
         alert("Please enter student name and book name.");
-
         return;
     }
 
@@ -74,24 +61,22 @@ function issueBook() {
     document.getElementById("issueBook").value = "";
 }
 
-
-// COMMENT OPTIMIZATION
 function optimizeComment() {
-
-    let comment =
-        document.getElementById("comment").value.trim();
+    let comment = document.getElementById("comment").value;
 
     if (comment === "") {
-
         alert("Please enter a comment.");
-
         return;
     }
 
-    let optimized = comment
-        .replace(/\b(very|really|actually|basically|just)\b/gi, "")
-        .replace(/\s+/g, " ")
-        .trim();
+    let optimized = comment;
+
+    optimized = optimized.replace(
+        /\b(very|really|actually|basically|just)\b/gi,
+        ""
+    );
+
+    optimized = optimized.replace(/\s+/g, " ").trim();
 
     document.getElementById("optimizedComment").innerText =
         optimized;
